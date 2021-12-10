@@ -23,13 +23,13 @@ __meta__ = {
 position = Vector2( 218, 283 )
 
 [node name="Player 2" parent="---------- Players" instance=ExtResource( 2 )]
-position = Vector2( 874, 295 )
+position = Vector2( 1508, 537 )
 player = 1
 
 [node name="---------- Wall of Doom" type="Node" parent="."]
 
 [node name="Wall Of Doom" parent="---------- Wall of Doom" instance=ExtResource( 3 )]
-position = Vector2( 435, 74 )
+position = Vector2( 911, -178 )
 
 [node name="---------- Turrets" type="Node" parent="."]
 
