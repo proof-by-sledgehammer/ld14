@@ -29,7 +29,7 @@ player = 1
 [node name="---------- Wall of Doom" type="Node" parent="."]
 
 [node name="Wall Of Doom" parent="---------- Wall of Doom" instance=ExtResource( 3 )]
-position = Vector2( 487, -226 )
+position = Vector2( 435, 74 )
 
 [node name="---------- Turrets" type="Node" parent="."]
 
