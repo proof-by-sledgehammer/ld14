@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://images/background.png" type="Texture" id=1]
 [ext_resource path="res://prefabs/player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://prefabs/wall of doom.tscn" type="PackedScene" id=3]
 
 [node name="Node2D" type="Node2D"]
 
@@ -26,6 +27,9 @@ position = Vector2( 874, 295 )
 player = 1
 
 [node name="---------- Wall of Doom" type="Node" parent="."]
+
+[node name="Wall Of Doom" parent="---------- Wall of Doom" instance=ExtResource( 3 )]
+position = Vector2( 487, -226 )
 
 [node name="---------- Turrets" type="Node" parent="."]
 
