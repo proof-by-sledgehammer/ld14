@@ -1,3 +1,13 @@
 [gd_scene format=2]
 
 [node name="Node2D" type="Node2D"]
+
+[node name="---------- Players" type="Node" parent="."]
+
+[node name="---------- Environment" type="Node" parent="."]
+
+[node name="---------- Wall of Doom" type="Node" parent="."]
+
+[node name="---------- Turrets" type="Node" parent="."]
+
+[node name="---------- GUI" type="Node" parent="."]
