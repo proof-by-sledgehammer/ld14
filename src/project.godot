@@ -8,6 +8,16 @@
 
 config_version=4
 
+_global_script_classes=[ {
+"base": "Node2D",
+"class": "Turret",
+"language": "GDScript",
+"path": "res://scripts/turret.gd"
+} ]
+_global_script_class_icons={
+"Turret": ""
+}
+
 [application]
 
 config/name="ld14"

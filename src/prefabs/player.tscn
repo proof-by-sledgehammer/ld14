@@ -27,5 +27,4 @@ shape = SubResource( 1 )
 [node name="Skin" type="AnimatedSprite" parent="."]
 scale = Vector2( 4, 4 )
 frames = SubResource( 2 )
-frame = 1
 playing = true

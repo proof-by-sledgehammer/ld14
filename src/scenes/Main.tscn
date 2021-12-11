@@ -23,13 +23,37 @@ __meta__ = {
 [node name="Player 1" parent="---------- Players" instance=ExtResource( 2 )]
 position = Vector2( 218, 283 )
 turretContainer = NodePath("../../---------- Turrets")
+energyIndicator = NodePath("../Player 1 - Energy")
 turretPrefab = ExtResource( 4 )
 
 [node name="Player 2" parent="---------- Players" instance=ExtResource( 2 )]
 position = Vector2( 1508, 537 )
 player = 1
 turretContainer = NodePath("../../---------- Turrets")
+energyIndicator = NodePath("../Player 2 - Energy")
 turretPrefab = ExtResource( 4 )
+
+[node name="Player 1 - Energy" type="ProgressBar" parent="---------- Players"]
+margin_left = 94.0
+margin_top = 119.0
+margin_right = 894.0
+margin_bottom = 169.0
+rect_rotation = 90.0
+value = 50.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Player 2 - Energy" type="ProgressBar" parent="---------- Players"]
+margin_left = 1849.0
+margin_top = 140.0
+margin_right = 2649.0
+margin_bottom = 190.0
+rect_rotation = 90.0
+value = 50.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="---------- Wall of Doom" type="Node" parent="."]
 
