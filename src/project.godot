@@ -118,6 +118,33 @@ player2_move_up={
 "events": [ Object(InputEventJoypadMotion,"resource_local_to_scene":false,"resource_name":"","device":0,"axis":1,"axis_value":-1.0,"script":null)
  ]
 }
+player1_place_turret1={
+"deadzone": 0.5,
+"events": [  ]
+}
+player1_place_turret2={
+"deadzone": 0.5,
+"events": [  ]
+}
+player1_place_turret3={
+"deadzone": 0.5,
+"events": [  ]
+}
+player2_place_turret1={
+"deadzone": 0.5,
+"events": [ Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":0,"button_index":0,"pressure":0.0,"pressed":false,"script":null)
+ ]
+}
+player2_place_turret2={
+"deadzone": 0.5,
+"events": [ Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":0,"button_index":1,"pressure":0.0,"pressed":false,"script":null)
+ ]
+}
+player2_place_turret3={
+"deadzone": 0.5,
+"events": [ Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":0,"button_index":2,"pressure":0.0,"pressed":false,"script":null)
+ ]
+}
 
 [physics]
 
