@@ -11,7 +11,7 @@ export(NodePath) var energyIndicator
 export(NodePath) var wallOfDoom
 export(PackedScene) var turretPrefab
 
-var energy = 100.0
+export var energy = 100.0
 var energyRecoveryRate = 10.0
 
 var lookDirection = Direction.Direction.NORTH
@@ -97,7 +97,7 @@ func process_movement(delta):
 	position.x += getXInput() * moveSpeed * delta
 	position.y += getYInput() * moveSpeed * delta
 	
-	var hitbox = get_node("Hitbox/Shape").shape
+	var hitbox = get_node("Hitbox").shape
 	var screen = get_viewport().size
 	
 	var minX = hitbox.radius
@@ -127,3 +127,7 @@ func _process(delta):
 	#process_look_direction()
 	process_turret_input()
 	update_energy()
+
+
+func _on_Hitbox_area_entered(area):
+	print_debug("Entered ", area)

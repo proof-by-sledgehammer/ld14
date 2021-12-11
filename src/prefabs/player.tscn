@@ -4,28 +4,28 @@
 [ext_resource path="res://scripts/player_controller.gd" type="Script" id=2]
 [ext_resource path="res://images/player - idle/frame2.png" type="Texture" id=3]
 
-[sub_resource type="CapsuleShape2D" id=1]
-radius = 23.0
-
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
 "frames": [ ExtResource( 1 ), ExtResource( 3 ) ],
 "loop": true,
 "name": "default",
-"speed": 2.0
+"speed": 5.0
 } ]
 
-[node name="Player" type="Node2D"]
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 20.0
+height = 26.0
+
+[node name="Player" type="RigidBody2D"]
+collision_layer = 2
+collision_mask = 2
+mode = 3
 script = ExtResource( 2 )
 
-[node name="Hitbox" type="Area2D" parent="."]
-
-[node name="Shape" type="CollisionShape2D" parent="Hitbox"]
-position = Vector2( 1, 6 )
-shape = SubResource( 1 )
-
 [node name="Skin" type="AnimatedSprite" parent="."]
-position = Vector2( 4, 1 )
 scale = Vector2( 2, 2 )
 frames = SubResource( 2 )
-playing = true
+
+[node name="Hitbox" type="CollisionShape2D" parent="."]
+position = Vector2( 0, 3 )
+shape = SubResource( 1 )
