@@ -10,6 +10,7 @@ enum Turret {
 var normalShotPrefab = preload("res://prefabs/normal shot.tscn")
 
 export(Turret) var turret
+export(Vector2) var shootDirection
 
 var cooldown = 0
 var shootsLeft = 0
@@ -35,7 +36,7 @@ func get_initial_shoots_left():
 func spawn_bullet():
 	var shot = normalShotPrefab.instance()
 	shot.position = Vector2(0,0)
-	shot.linear_velocity = Vector2(-1000, 0)
+	shot.linear_velocity = shootDirection * 1000
 	add_child(shot)
 
 func process_shooting(delta):

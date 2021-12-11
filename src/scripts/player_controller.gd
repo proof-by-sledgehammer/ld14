@@ -13,6 +13,9 @@ export(PackedScene) var turretPrefab
 var energy = 100.0
 var energyRecoveryRate = 10.0
 
+var lookDirection = Direction.Direction.NORTH
+var walkDirection = Direction.Direction.NORTH
+
 const TURRET1_COST = 30.0
 const TURRET2_COST = 50.0
 const TURRET3_COST = 70.0
@@ -44,6 +47,7 @@ func spawn_turret(turretType):
 	var turret = turretPrefab.instance()
 	turret.position = position
 	turret.turret = turretType
+	turret.shootDirection = Direction.to_vec(lookDirection)
 	get_node(turretContainer).add_child(turret)
 	energy = energy - turret_cost(turretType)
 
@@ -72,10 +76,24 @@ func recover_energy(delta):
 		energy = energy + delta * energyRecoveryRate
 	else:
 		energy = 100
+		
+func process_look_direction():
+	pass
 
-func _process(delta):
+func process_movement(delta):
 	position.x += getXInput() * moveSpeed * delta
 	position.y += getYInput() * moveSpeed * delta
+
+func _ready():
+	match player:
+		Player.PLAYER1:
+			lookDirection = Direction.Direction.EAST
+		Player.PLAYER2:
+			lookDirection = Direction.Direction.WEST
+
+func _process(delta):
+	process_movement(delta)
 	recover_energy(delta)
+	process_look_direction()
 	process_turret_input()
 	update_energy()
