@@ -8,6 +8,7 @@ export(Player) var player
 export(float) var moveSpeed = 700.0
 export(NodePath) var turretContainer
 export(NodePath) var energyIndicator
+export(NodePath) var wallOfDoom
 export(PackedScene) var turretPrefab
 
 var energy = 100.0
@@ -48,6 +49,7 @@ func spawn_turret(turretType):
 	turret.position = position
 	turret.turret = turretType
 	turret.shootDirection = Direction.to_vec(lookDirection)
+	turret.wallOfDoom = wallOfDoom
 	get_node(turretContainer).add_child(turret)
 	energy = energy - turret_cost(turretType)
 

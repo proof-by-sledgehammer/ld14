@@ -8,11 +8,12 @@ enum Turret {
 }
 
 var normalShotPrefab = preload("res://prefabs/normal shot.tscn")
-var quickShotPrefab = preload("res://prefabs/quick shot.tscn")
-var heavyShotPrefab = preload("res://prefabs/heavy shot.tscn")
+var quickShotPrefab  = preload("res://prefabs/quick shot.tscn")
+var heavyShotPrefab  = preload("res://prefabs/heavy shot.tscn")
 
 export(Turret) var turret
 export(Vector2) var shootDirection
+export(NodePath) var wallOfDoom
 
 var cooldown = 0
 var shootsLeft = 0
