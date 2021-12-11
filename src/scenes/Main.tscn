@@ -4,7 +4,7 @@
 [ext_resource path="res://prefabs/player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://prefabs/wall of doom.tscn" type="PackedScene" id=3]
 
-[node name="Node2D" type="Node2D"]
+[node name="Adancing Wall of Doom" type="Node2D"]
 
 [node name="---------- Environment" type="Node" parent="."]
 
@@ -29,7 +29,7 @@ player = 1
 [node name="---------- Wall of Doom" type="Node" parent="."]
 
 [node name="Wall Of Doom" parent="---------- Wall of Doom" instance=ExtResource( 3 )]
-position = Vector2( 911, -178 )
+position = Vector2( 944, 524 )
 
 [node name="---------- Turrets" type="Node" parent="."]
 
