@@ -60,8 +60,18 @@ func process_shooting(delta):
 	else:
 		cooldown -= delta
 
+func start_animation():
+	match turret:
+		Turret.TURRET1:
+			get_node("Skin").animation = "tower1"
+		Turret.TURRET2:
+			get_node("Skin").animation = "tower2"
+		Turret.TURRET3:
+			get_node("Skin").animation = "tower3"
+
 func _ready():
 	shootsLeft = get_initial_shoots_left()
+	start_animation()
 
 func _process(delta):
 	process_shooting(delta)

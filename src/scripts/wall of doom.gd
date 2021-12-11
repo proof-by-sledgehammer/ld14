@@ -23,7 +23,7 @@ func _integrate_forces(state):
 		var screen = get_viewport().size
 		var shape  = get_node("Hitbox").shape.extents
 		var pos    = Vector2((screen.x - shape.x) / 2, screen.y / 2)
-
+		
 		state.transform = Transform2D(0, pos)
 		state.linear_velocity = Vector2()
 		state.angular_velocity = 0

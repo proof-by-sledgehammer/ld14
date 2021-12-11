@@ -1,19 +1,43 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://scripts/turret.gd" type="Script" id=1]
-[ext_resource path="res://images/turrets/tower.png" type="Texture" id=2]
+[ext_resource path="res://images/turrets/tower3_w.png" type="Texture" id=2]
+[ext_resource path="res://images/turrets/tower1_w.png" type="Texture" id=3]
+[ext_resource path="res://images/turrets/tower2_w.png" type="Texture" id=4]
 
-[sub_resource type="SpriteFrames" id=1]
+[sub_resource type="SpriteFrames" id=2]
 animations = [ {
+"frames": [ ExtResource( 4 ) ],
+"loop": true,
+"name": "tower2",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 2 ) ],
 "loop": true,
-"name": "default",
+"name": "tower3",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ) ],
+"loop": true,
+"name": "tower1",
 "speed": 5.0
 } ]
 
-[node name="Node2D" type="Node2D"]
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 25.0
+height = 0.0
+
+[node name="Turret" type="RigidBody2D"]
+collision_layer = 4
+collision_mask = 4
+mode = 1
 script = ExtResource( 1 )
 
-[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-frames = SubResource( 1 )
-playing = true
+[node name="Skin" type="AnimatedSprite" parent="."]
+scale = Vector2( 2, 2 )
+frames = SubResource( 2 )
+animation = "tower1"
+
+[node name="Hitbox" type="CollisionShape2D" parent="."]
+position = Vector2( -1, 7 )
+shape = SubResource( 1 )
