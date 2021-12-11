@@ -63,3 +63,6 @@ position = Vector2( 944, 524 )
 [node name="---------- Turrets" type="Node" parent="."]
 
 [node name="---------- GUI" type="Node" parent="."]
+
+[editable path="---------- Players/Player 1"]
+[editable path="---------- Wall of Doom/Wall Of Doom"]

@@ -43,6 +43,7 @@ func turret_cost(turretType):
 func spawn_turret(turretType):
 	var turret = turretPrefab.instance()
 	turret.position = position
+	turret.turret = turretType
 	get_node(turretContainer).add_child(turret)
 	energy = energy - turret_cost(turretType)
 
