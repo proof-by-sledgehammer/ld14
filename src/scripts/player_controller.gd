@@ -94,6 +94,23 @@ func process_look_direction():
 func process_movement(delta):
 	position.x += getXInput() * moveSpeed * delta
 	position.y += getYInput() * moveSpeed * delta
+	
+	var hitbox = get_node("Hitbox/Shape").shape
+	var screen = get_viewport().size
+	
+	var minX = hitbox.radius
+	var minY = hitbox.height
+	var maxX = screen.x - hitbox.radius
+	var maxY = screen.y - hitbox.height
+	
+	if position.x <= minX:
+		position.x = minX
+	if position.y <= minY:
+		position.y = minY
+	if position.x >= maxX:
+		position.x = maxX
+	if position.y >= maxY:
+		position.y = maxY
 
 func _ready():
 	match player:
