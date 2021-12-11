@@ -78,7 +78,18 @@ func recover_energy(delta):
 		energy = 100
 		
 func process_look_direction():
-	pass
+	match player:
+		Player.PLAYER1:
+			var mousePos = get_global_mouse_position()
+			var lookAt = mousePos - position
+			lookDirection = Direction.from_vec(lookAt)
+		Player.PLAYER2:
+			# TODO: Somehow left-right and up-down are switched
+			# Not sure if I messed up `from_vec` or there are problems with `get_axis`
+			var x = Input.get_axis("player2_look_left", "player2_look_right")
+			var y = Input.get_axis("player2_look_up", "player2_look_down")
+			if x != 0 or y != 0:
+				lookDirection = Direction.from_vec(Vector2(y, x))
 
 func process_movement(delta):
 	position.x += getXInput() * moveSpeed * delta
