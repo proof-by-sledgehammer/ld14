@@ -8,6 +8,8 @@ enum Turret {
 }
 
 var normalShotPrefab = preload("res://prefabs/normal shot.tscn")
+var quickShotPrefab = preload("res://prefabs/quick shot.tscn")
+var heavyShotPrefab = preload("res://prefabs/heavy shot.tscn")
 
 export(Turret) var turret
 export(Vector2) var shootDirection
@@ -20,7 +22,7 @@ func getCooldown():
 		Turret.TURRET1:
 			return 1.0
 		Turret.TURRET2:
-			return 0.0
+			return 0.06
 		Turret.TURRET3:
 			return 3.0
 			
@@ -32,9 +34,18 @@ func get_initial_shoots_left():
 			return 100
 		Turret.TURRET3:
 			return 5
-			
+
+func get_bullet_prefab():
+	match turret:
+		Turret.TURRET1:
+			return normalShotPrefab
+		Turret.TURRET2:
+			return quickShotPrefab
+		Turret.TURRET3:
+			return heavyShotPrefab
+
 func spawn_bullet():
-	var shot = normalShotPrefab.instance()
+	var shot = get_bullet_prefab().instance()
 	shot.position = Vector2(0,0)
 	shot.linear_velocity = shootDirection * 1000
 	add_child(shot)

@@ -27,6 +27,9 @@ turretContainer = NodePath("../../---------- Turrets")
 energyIndicator = NodePath("../Player 1 - Energy")
 turretPrefab = ExtResource( 4 )
 
+[node name="Skin" parent="---------- Players/Player 1" index="1"]
+frame = 0
+
 [node name="Player 2" parent="---------- Players" instance=ExtResource( 2 )]
 position = Vector2( 1508, 537 )
 player = 1

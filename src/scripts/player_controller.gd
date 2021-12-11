@@ -122,6 +122,6 @@ func _ready():
 func _process(delta):
 	process_movement(delta)
 	recover_energy(delta)
-	process_look_direction()
+	#process_look_direction()
 	process_turret_input()
 	update_energy()
