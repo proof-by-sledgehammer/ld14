@@ -29,5 +29,4 @@ animations = [ {
 [node name="Monster Arm" type="AnimatedSprite"]
 scale = Vector2( 2, 2 )
 frames = SubResource( 5 )
-frame = 3
 playing = true
