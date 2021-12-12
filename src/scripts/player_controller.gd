@@ -9,6 +9,8 @@ export(float) var moveSpeed = 700.0
 export(NodePath) var turretContainer
 export(NodePath) var energyIndicator
 export(NodePath) var wallOfDoom
+export(NodePath) var playerState
+export(NodePath) var reset
 export(PackedScene) var turretPrefab
 
 export var energy = 100.0
@@ -132,12 +134,35 @@ func _ready():
 			lookDirection = Direction.Direction.WEST
 
 func _process(delta):
+	if get_node(playerState).anyPlayerDying():
+		return
 	process_movement(delta)
 	recover_energy(delta)
 	#process_look_direction()
 	process_turret_input()
 	update_energy()
+	
+func die():
+	$Die.play()
+	$Skin.animation = "die"
+	$Skin.play()
+	$Hitbox.disabled = true
+	match player:
+		Player.PLAYER1:
+			get_node(playerState).player1Dying = true
+		Player.PLAYER2:
+			get_node(playerState).player2Dying = true
 
+func spawn():
+	$Skin.animation = "default"
+	$Skin.play()
+	$Hitbox.disabled = false
+	match player:
+		Player.PLAYER1:
+			get_node(playerState).player1Dying = false
+		Player.PLAYER2:
+			get_node(playerState).player2Dying = false
 
-func _on_Hitbox_area_entered(area):
-	print_debug("Entered ", area)
+func _on_Skin_animation_finished():
+	if $Skin.animation == "die":
+		get_node(reset).global_reset()

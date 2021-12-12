@@ -16,6 +16,8 @@ func global_reset():
 	var turrets_node = get_node(turretContainer)
 	
 	wall_node.request_reset()
+	player1_node.spawn()
+	player2_node.spawn()
 	
 	var player1_shape = player1_node.get_node("Hitbox").shape
 	var player2_shape = player2_node.get_node("Hitbox").shape
