@@ -14,6 +14,7 @@ var heavyShotPrefab  = preload("res://prefabs/heavy shot.tscn")
 export(Turret) var turret
 export(Vector2) var shootDirection
 export(NodePath) var wallOfDoom
+export(NodePath) var reset
 
 var cooldown = 0
 var shootsLeft = 0
@@ -49,6 +50,7 @@ func spawn_bullet():
 	var shot = get_bullet_prefab().instance()
 	shot.position = Vector2(0,0)
 	shot.linear_velocity = shootDirection * 1000
+	shot.mass *= 1 + get_node(reset).timePlayed / 15
 	add_child(shot)
 	match turret:
 		Turret.TURRET1:

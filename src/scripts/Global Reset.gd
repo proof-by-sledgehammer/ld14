@@ -7,7 +7,11 @@ export(NodePath) var turretContainer
 
 const PLAYER_X_OFF = 150
 
+var timePlayed = 0
+
 func global_reset():
+	timePlayed = 0
+	
 	var screen = get_viewport().size
 	
 	var player1_node = get_node(player1)
@@ -34,3 +38,6 @@ func global_reset():
 
 func _ready():
 	global_reset()
+	
+func _process(delta):
+	timePlayed += delta

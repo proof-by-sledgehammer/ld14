@@ -3,6 +3,8 @@ extends RigidBody2D
 export(NodePath) var score
 export(NodePath) var playerState
 
+export(Array, PackedScene) var monsterPrefabs
+
 var resetRequested = false
 
 func _on_Wall_of_Doom_body_entered(body):
@@ -32,3 +34,17 @@ func _integrate_forces(state):
 			
 		state.linear_velocity = Vector2()
 		state.angular_velocity = 0
+
+func decorate_with_monsters():
+	var height = $Hitbox.shape.extents.y
+	var density = 50
+	for y in height / density:
+		var monsterPrefab = monsterPrefabs[randi() % monsterPrefabs.size()]
+		var monster = monsterPrefab.instance()
+		var pixelX = randi() % int($Hitbox.shape.extents.x)
+		var pixelY = height / 2 - y * density
+		monster.position = Vector2(pixelX, pixelY)
+		add_child(monster)
+
+func _ready():
+	decorate_with_monsters()

@@ -52,6 +52,7 @@ func spawn_turret(turretType):
 	turret.turret = turretType
 	turret.shootDirection = Direction.to_vec(lookDirection)
 	turret.wallOfDoom = wallOfDoom
+	turret.reset = reset
 	get_node(turretContainer).add_child(turret)
 	energy = energy - turret_cost(turretType)
 
