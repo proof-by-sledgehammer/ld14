@@ -60,14 +60,23 @@ func process_shooting(delta):
 	else:
 		cooldown -= delta
 
+func animation_suffix():
+	match Direction.from_vec(shootDirection):
+		Direction.Direction.EAST:
+			return "_e"
+		Direction.Direction.WEST:
+			return "_w"
+		_:
+			return ""
+
 func start_animation():
 	match turret:
 		Turret.TURRET1:
-			get_node("Skin").animation = "tower1"
+			get_node("Skin").animation = "tower1" + animation_suffix()
 		Turret.TURRET2:
-			get_node("Skin").animation = "tower2"
+			get_node("Skin").animation = "tower2" + animation_suffix()
 		Turret.TURRET3:
-			get_node("Skin").animation = "tower3"
+			get_node("Skin").animation = "tower3" + animation_suffix()
 
 func _ready():
 	shootsLeft = get_initial_shoots_left()
