@@ -33,6 +33,11 @@ animations = [ {
 "loop": true,
 "name": "die",
 "speed": 5.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "walk w",
+"speed": 5.0
 } ]
 
 [sub_resource type="CapsuleShape2D" id=1]
