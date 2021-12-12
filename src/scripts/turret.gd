@@ -50,6 +50,13 @@ func spawn_bullet():
 	shot.position = Vector2(0,0)
 	shot.linear_velocity = shootDirection * 1000
 	add_child(shot)
+	match turret:
+		Turret.TURRET1:
+			$Audio1.play()
+		Turret.TURRET2:
+			$Audio2.play()
+		Turret.TURRET3:
+			$Audio3.play()
 
 func process_shooting(delta):
 	if cooldown <= 0.0:

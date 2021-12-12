@@ -14,6 +14,7 @@ func _on_Wall_of_Doom_body_entered(body):
 		get_node(reset).global_reset()
 	else:
 		body.queue_free()
+		#$Hit1.play()
 
 func request_reset():
 	resetRequested = true
