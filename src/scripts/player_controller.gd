@@ -94,8 +94,18 @@ func process_look_direction():
 				lookDirection = Direction.from_vec(Vector2(y, x))
 
 func process_movement(delta):
-	position.x += getXInput() * moveSpeed * delta
-	position.y += getYInput() * moveSpeed * delta
+	var moveX = getXInput() * moveSpeed * delta
+	var moveY = getYInput() * moveSpeed * delta
+	
+	if moveX == 0 and moveY == 0:
+		$Step.playing = false
+		return
+	
+	if !$Step.playing:
+		$Step.play()
+	
+	position.x += moveX
+	position.y += moveY
 	
 	var hitbox = get_node("Hitbox").shape
 	var screen = get_viewport().size
