@@ -4,7 +4,7 @@
 extents = Vector2( 4, 1 )
 
 [node name="Normal Shot" type="RigidBody2D"]
-mass = 0.02
+mass = 0.01
 
 [node name="Hitbox" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
