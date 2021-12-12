@@ -45,6 +45,7 @@ func decorate_with_monsters():
 		var pixelY = height / 2 - y * density
 		monster.position = Vector2(pixelX, pixelY)
 		monster.rotation = PI * (randi() % 380) / 180
+		monster.z_index  = randi() % 10 + 1
 		add_child(monster)
 
 func _ready():
