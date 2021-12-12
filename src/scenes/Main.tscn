@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://images/background.png" type="Texture" id=1]
 [ext_resource path="res://prefabs/player.tscn" type="PackedScene" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://audio/theme.mp3" type="AudioStream" id=7]
 [ext_resource path="res://scripts/Player State.gd" type="Script" id=8]
 [ext_resource path="res://prefabs/floating monster.tscn" type="PackedScene" id=9]
+[ext_resource path="res://prefabs/skull monster.tscn" type="PackedScene" id=10]
 
 [node name="Adancing Wall of Doom" type="Node2D"]
 
@@ -89,7 +90,7 @@ __meta__ = {
 position = Vector2( 944, 0 )
 score = NodePath("../../---------- GUI/Score")
 playerState = NodePath("../../---------- Environment/Player State")
-monsterPrefabs = [ ExtResource( 9 ) ]
+monsterPrefabs = [ ExtResource( 9 ), ExtResource( 10 ) ]
 
 [node name="---------- Turrets" type="Node" parent="."]
 

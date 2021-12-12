@@ -41,9 +41,10 @@ func decorate_with_monsters():
 	for y in height / density:
 		var monsterPrefab = monsterPrefabs[randi() % monsterPrefabs.size()]
 		var monster = monsterPrefab.instance()
-		var pixelX = randi() % int($Hitbox.shape.extents.x)
+		var pixelX = (randi() % int($Hitbox.shape.extents.x)) - 16
 		var pixelY = height / 2 - y * density
 		monster.position = Vector2(pixelX, pixelY)
+		monster.rotation = PI * (randi() % 380) / 180
 		add_child(monster)
 
 func _ready():

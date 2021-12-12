@@ -33,5 +33,5 @@ animations = [ {
 [node name="Floating Monster" type="AnimatedSprite"]
 scale = Vector2( 2, 2 )
 frames = SubResource( 6 )
-frame = 4
+frame = 2
 playing = true
