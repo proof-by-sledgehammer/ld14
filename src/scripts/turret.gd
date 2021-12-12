@@ -85,9 +85,19 @@ func start_animation():
 		Turret.TURRET3:
 			get_node("Skin").animation = "tower3" + animation_suffix()
 
+func explode():
+	shootsLeft = 0
+	$Skin.animation = "explosion"
+	$Skin.play()
+	$Hitbox.disabled = true
+	$Explosion.play()
+
 func _ready():
 	shootsLeft = get_initial_shoots_left()
 	start_animation()
 
 func _process(delta):
 	process_shooting(delta)
+	
+func _on_Skin_animation_finished():
+	queue_free()

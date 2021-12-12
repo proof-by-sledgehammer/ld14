@@ -12,6 +12,8 @@ func _on_Wall_of_Doom_body_entered(body):
 	elif body.name == "Player 2":
 		get_node(score).player1_score += 1
 		get_node(reset).global_reset()
+	elif "Turret" in body.name:
+		body.explode()
 	else:
 		body.queue_free()
 		#$Hit1.play()
