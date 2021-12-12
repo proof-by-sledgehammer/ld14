@@ -113,9 +113,9 @@ func process_movement(delta):
 	var hitbox = get_node("Hitbox").shape
 	var screen = get_viewport().size
 	
-	var minX = hitbox.radius
+	var minX = hitbox.radius + 40
 	var minY = hitbox.height
-	var maxX = screen.x - hitbox.radius
+	var maxX = screen.x - hitbox.radius - 40
 	var maxY = screen.y - hitbox.height
 	
 	if position.x <= minX:
