@@ -36,8 +36,9 @@ func _integrate_forces(state):
 		state.angular_velocity = 0
 
 func decorate_with_monsters():
+	randomize()
 	var height = $Hitbox.shape.extents.y
-	var density = 50
+	var density = 40
 	for y in height / density:
 		var monsterPrefab = monsterPrefabs[randi() % monsterPrefabs.size()]
 		var monster = monsterPrefab.instance()
