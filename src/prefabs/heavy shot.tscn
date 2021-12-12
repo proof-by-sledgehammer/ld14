@@ -3,6 +3,7 @@
 [sub_resource type="CircleShape2D" id=1]
 
 [node name="Heavy Shot" type="RigidBody2D"]
+mass = 1.2
 
 [node name="Hitbox" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
