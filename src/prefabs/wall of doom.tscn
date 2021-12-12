@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://images/wall of doom/wall_of_doom_segment.png" type="Texture" id=1]
 [ext_resource path="res://scripts/wall of doom.gd" type="Script" id=2]
 [ext_resource path="res://audio/wall_hit_1.wav" type="AudioStream" id=3]
+[ext_resource path="res://audio/wall-background.mp3" type="AudioStream" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 22, 4096 )
@@ -31,5 +32,11 @@ __meta__ = {
 
 [node name="Hit1" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 3 )
+
+[node name="Background Noise" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 4 )
+volume_db = -10.0
+pitch_scale = 0.93
+autoplay = true
 
 [connection signal="body_entered" from="." to="." method="_on_Wall_of_Doom_body_entered"]
