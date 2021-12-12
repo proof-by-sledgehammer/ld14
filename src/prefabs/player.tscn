@@ -1,17 +1,29 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=22 format=2]
 
-[ext_resource path="res://images/player - idle/frame1.png" type="Texture" id=1]
+[ext_resource path="res://images/player - move/walkingleft1.png" type="Texture" id=1]
 [ext_resource path="res://scripts/player_controller.gd" type="Script" id=2]
-[ext_resource path="res://images/player - idle/frame2.png" type="Texture" id=3]
+[ext_resource path="res://images/player - move/walkingleft2.png" type="Texture" id=3]
 [ext_resource path="res://audio/walk.mp3" type="AudioStream" id=4]
 [ext_resource path="res://audio/die.mp3" type="AudioStream" id=5]
 [ext_resource path="res://images/player die.png" type="Texture" id=6]
 [ext_resource path="res://shader/shadow.tres" type="Shader" id=7]
+[ext_resource path="res://images/player - move/walkingleft3.png" type="Texture" id=8]
+[ext_resource path="res://images/player - move/walkingleft4.png" type="Texture" id=9]
+[ext_resource path="res://images/player - move/walkingright4.png" type="Texture" id=10]
+[ext_resource path="res://images/player - move/walkingright3.png" type="Texture" id=11]
+[ext_resource path="res://images/player - move/walkingright1.png" type="Texture" id=12]
+[ext_resource path="res://images/player - move/walkingright2.png" type="Texture" id=13]
 
 [sub_resource type="ShaderMaterial" id=6]
 shader = ExtResource( 7 )
 shader_param/radius = 5.0
 shader_param/modulate = null
+
+[sub_resource type="StreamTexture" id=7]
+load_path = "res://.import/frame1.png-a00a39536895d0f107dada24f66f664f.stex"
+
+[sub_resource type="StreamTexture" id=8]
+load_path = "res://.import/frame2.png-1037e315d1ad71a97f0463ec9ced51b4.stex"
 
 [sub_resource type="AtlasTexture" id=3]
 flags = 4
@@ -30,7 +42,7 @@ region = Rect2( 160, 0, 32, 32 )
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
-"frames": [ ExtResource( 1 ), ExtResource( 3 ) ],
+"frames": [ SubResource( 7 ), SubResource( 8 ) ],
 "loop": true,
 "name": "default",
 "speed": 5.0
@@ -40,10 +52,15 @@ animations = [ {
 "name": "die",
 "speed": 5.0
 }, {
-"frames": [  ],
+"frames": [ ExtResource( 1 ), ExtResource( 3 ), ExtResource( 8 ), ExtResource( 9 ) ],
 "loop": true,
 "name": "walk w",
-"speed": 5.0
+"speed": 15.0
+}, {
+"frames": [ ExtResource( 12 ), ExtResource( 13 ), ExtResource( 11 ), ExtResource( 10 ) ],
+"loop": true,
+"name": "walk e",
+"speed": 15.0
 } ]
 
 [sub_resource type="CapsuleShape2D" id=1]
@@ -59,6 +76,7 @@ script = ExtResource( 2 )
 material = SubResource( 6 )
 scale = Vector2( 1.5, 1.5 )
 frames = SubResource( 2 )
+animation = "walk e"
 
 [node name="Hitbox" type="CollisionShape2D" parent="."]
 position = Vector2( 0, 3 )

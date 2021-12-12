@@ -5,7 +5,7 @@ enum Player{
 }
 
 export(Player) var player
-export(float) var moveSpeed = 700.0
+export(float) var moveSpeed = 300.0
 export(NodePath) var turretContainer
 export(NodePath) var energyIndicator
 export(NodePath) var wallOfDoom
@@ -102,7 +102,14 @@ func process_movement(delta):
 	
 	if moveX == 0 and moveY == 0:
 		$Step.playing = false
+		$Skin.animation = "default"
 		return
+	
+	if moveX != 0 and abs(moveX) > abs(moveY):
+		if moveX > 0:
+			$Skin.animation = "walk e"
+		elif moveX < 0:
+			$Skin.animation = "walk w"
 	
 	if !$Step.playing:
 		$Step.play()

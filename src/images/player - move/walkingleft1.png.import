@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Character_walking_frame2.png-2e6b353af4e3cfcff0f05453803c4744.stex"
+path="res://.import/walkingleft1.png-9e924b80cc77d01037118b2f9a18e7b5.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/player - move/Character_walking_frame2.png"
-dest_files=[ "res://.import/Character_walking_frame2.png-2e6b353af4e3cfcff0f05453803c4744.stex" ]
+source_file="res://images/player - move/walkingleft1.png"
+dest_files=[ "res://.import/walkingleft1.png-9e924b80cc77d01037118b2f9a18e7b5.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
