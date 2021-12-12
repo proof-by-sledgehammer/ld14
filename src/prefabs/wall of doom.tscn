@@ -17,6 +17,20 @@ script = ExtResource( 2 )
 [node name="Hitbox" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
 
+[node name="Shaodw" type="TextureRect" parent="Hitbox"]
+modulate = Color( 0, 0, 0, 0.564706 )
+margin_left = -28.0
+margin_top = -4092.0
+margin_right = -12.0
+margin_bottom = -2044.0
+rect_scale = Vector2( 4, 4 )
+texture = ExtResource( 1 )
+expand = true
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Skin" type="TextureRect" parent="Hitbox"]
 margin_left = -32.0
 margin_top = -4096.0
